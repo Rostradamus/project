@@ -150,6 +150,8 @@ void tree_tester(string_bst const &tree) {
 //--- PART 3: Implementation and testing of word frequency analysis
 void overall_most_freq(max_heap hp) {
 	std::cout << "*** Top 5 most frequent words: ***" << std::endl;
+	int leftChild = 1;
+	int rightChild = 2;
 
 	//--- Add your code to print out the 5 most frequent words below:
 	if (hp.size() > 1) {
@@ -157,6 +159,12 @@ void overall_most_freq(max_heap hp) {
 	}
 
 }
+
+text_item node_compare_helper(max_heap hp, int first, int second) {
+
+	return text_item{"",0};
+}
+
 
 void at_least_length(max_heap hp, size_t num_letters) {
 	cout << "*** Top 5 most frequent words with at least "
