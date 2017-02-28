@@ -1,6 +1,6 @@
 .DS_Store
 *.zip
-/Project1/**/*.o
+/**/**/*.o
 /Project1/LQueue_student_files/runway
 /Project1/LQueue_student_files/LQueue_driver
 /Project2/student-files/main
