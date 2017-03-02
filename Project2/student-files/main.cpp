@@ -152,6 +152,14 @@ void overall_most_freq(max_heap hp) {
 	std::cout << "*** Top 5 most frequent words: ***" << std::endl;
 	int leftChild = 1;
 	int rightChild = 2;
+	int count = 0;
+
+	text_item * currLeft;
+	text_item * currRight;
+
+	while (count <=5) {
+		
+	}
 
 	//--- Add your code to print out the 5 most frequent words below:
 	if (hp.size() > 1) {

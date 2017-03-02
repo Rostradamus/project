@@ -21,6 +21,7 @@ max_heap::~max_heap()
 bool max_heap::empty() const {
 	return (numItems == 0);
 }
+
 bool max_heap::full() const {
 	return (numItems == max_capacity);
 }
