@@ -130,7 +130,7 @@ void tree_tester(string_bst const &tree) {
 	//--- Testing word_frequency functionality
 	//--- This does not fully test word_frequency functionality.
 	if (tree.size() > 1) {
-		string to_find = "a";
+		string to_find = "thing";
 		int num_times = tree.word_frequency(to_find);
 		std::cout << "Found: "<< to_find <<
 			" in the input file " << num_times
@@ -148,8 +148,6 @@ void tree_tester(string_bst const &tree) {
 }
 
 //--- PART 3: Implementation and testing of word frequency analysis
-// ASSUMPTION: Top 5 most frequent words must present within hp.data[0] ... hp.data[30]
-// 						 With this assumtion, we discard rest of the data for better efficiency
 void overall_most_freq(max_heap hp) {
 	std::cout << "*** Top 5 most frequent words: ***" << std::endl;
 	int count = 1;
