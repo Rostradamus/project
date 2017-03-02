@@ -148,36 +148,31 @@ void tree_tester(string_bst const &tree) {
 }
 
 //--- PART 3: Implementation and testing of word frequency analysis
+// ASSUMPTION: Top 5 most frequent words must present within hp.data[0] ... hp.data[30]
+// 						 With this assumtion, we discard rest of the data for better efficiency
 void overall_most_freq(max_heap hp) {
 	std::cout << "*** Top 5 most frequent words: ***" << std::endl;
-	int leftChild = 1;
-	int rightChild = 2;
-	int count = 0;
+	int count = 1;
 
-	text_item * currLeft;
-	text_item * currRight;
-
-	while (count <=5) {
-		
+	while (hp.size() > 0 && count <= 5) {
+		text_item top = hp.delete_max();
+		std::cout << top << std::endl;
+		count++;
 	}
-
-	//--- Add your code to print out the 5 most frequent words below:
-	if (hp.size() > 1) {
-		std::cout << "Most frequent text item: " << hp.top() << std::endl;
-	}
-
-}
-
-text_item node_compare_helper(max_heap hp, int first, int second) {
-
-	return text_item{"",0};
 }
 
 
 void at_least_length(max_heap hp, size_t num_letters) {
 	cout << "*** Top 5 most frequent words with at least "
 		<< num_letters << " letters ***" << std::endl;
-
+	int count = 1;
+	while (hp.size() > 0 && count <= 5) {
+		text_item top = hp.delete_max();
+		if (top.word.length() >= num_letters) {
+			std::cout << top << std::endl;
+			count++;
+		}
+	}
 	//--- Add code to print out the 5 most common
 	//--- words of length at least <num_letters>
 
@@ -187,10 +182,16 @@ void at_least_length(max_heap hp, size_t num_letters) {
 void starts_with(max_heap hp, char starts_with_letter) {
 	cout << "*** Top 5 most frequent words that begin with "
 		<< starts_with_letter << " ***" << std::endl;
-
 	//--- Add code to print out the 5 most common words
 	//--- that start with the letter <starts_with_letter>
-
+	int count = 1;
+	while (hp.size() > 0 && count <= 5) {
+		text_item top = hp.delete_max();
+		if (top.word[0] == starts_with_letter) {
+			std::cout << top << std::endl;
+			count++;
+		}
+	}
 
 }
 
@@ -222,7 +223,7 @@ void text_analysis_tester(string_bst &tree) {
 	std::cout << std::endl << "BEGINNING TESTS FOR PART 3" << std::endl;
 	overall_most_freq(copy_to_heap(tree));
 	std::cout << std::endl;
-	at_least_length(copy_to_heap(tree), 8); // change the 8 to test other string-lengths
+	at_least_length(copy_to_heap(tree), 6); // change the 8 to test other string-lengths
 	std::cout << std::endl;
 	starts_with(copy_to_heap(tree), 'c'); // change the 'c' to test words that starts_with_letter
 											// with different characters
