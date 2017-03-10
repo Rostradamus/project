@@ -182,7 +182,7 @@ void tree_tester(string_bst const &tree) {
 	testTree->display();
 
 	cout << endl << "		1)Testing search through left subtrees " << endl;
-	if (tree.size() > 1) {
+	if (testTree->size() > 1) {
 		string to_find = "a";
 		int num_times = testTree->word_frequency(to_find);
 		std::cout << "Found: "<< to_find <<
@@ -191,7 +191,7 @@ void tree_tester(string_bst const &tree) {
 	}
 
 	cout << endl << "		2)Testing search through right subtrees " << endl;
-	if (tree.size() > 1) {
+	if (testTree->size() > 1) {
 		string to_find = "d";
 		int num_times = testTree->word_frequency(to_find);
 		std::cout << "Found: "<< to_find <<
@@ -208,6 +208,8 @@ void tree_tester(string_bst const &tree) {
 			" in the input file. The freq is: " << num_times
 			<< " time(s)." << std::endl;
 	}
+
+	delete testTree;
 
 }
 
