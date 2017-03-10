@@ -15,14 +15,15 @@ void heap_insert_tests(max_heap &hp) {
 	long int seed = long(time(0));    // seed for random number generator
 	srand(seed);
 	int word_freq;
-	int heap_capacity = hp.capacity();
+
 
 	//--- Testing insert functionality
 	std::cout << "*** TESTING INSERT ***" << std::endl;
 	//--- This adds 5 items to the heap with random numbers
 	//    and prints out the top, but it does not fully
 	//    test the correctness of the insert function.
-	for (int i = 0 ; i < heap_capacity; i++) {
+	int i = 0;
+	while (!hp.full()) {
 		random_num = rand() % 100;
 		string text = word;
 		text += std::to_string(i+1);
@@ -30,7 +31,9 @@ void heap_insert_tests(max_heap &hp) {
 		hp.insert(text_item{text, random_num});
 		temp = hp.top();
 		std::cout << "Top of heap is: " << temp << std::endl;
+		i++;
 	}
+	int heap_capacity = hp.size();
 
 	//--- Specific insert functionality that should be tested:
 
@@ -39,7 +42,8 @@ void heap_insert_tests(max_heap &hp) {
 
 		cout << endl << "Testing insert without any swap_ups needed " << endl;
 		max_heap testMaxHeap1(heap_capacity);
-		for (int i = 0; i < heap_capacity; i++) {
+		i = 0;
+		while (!testMaxHeap1.full()){
 			string text = word;
 			word_freq = (heap_capacity - i) * 10;
 			text += std::to_string(i+1);
@@ -47,6 +51,7 @@ void heap_insert_tests(max_heap &hp) {
 			testMaxHeap1.insert(text_item{text, word_freq});
 			temp = testMaxHeap1.top();
 			std::cout << "Top of heap is: " << temp << std::endl;
+			i++;
 		}
 
 	// insert with a swap_up / multiple swap_ups
@@ -54,7 +59,8 @@ void heap_insert_tests(max_heap &hp) {
 
 		cout << endl << "Testing insert with a swap_up / multiple swap_ups " << endl;
 		max_heap testMaxHeap2(heap_capacity);
-		for (int i = 0; i < heap_capacity; i++) {
+		i = 0;
+		while (!testMaxHeap2.full()) {
 			string text = word;
 			word_freq = (i + 1) * 10;
 			text += std::to_string(i+1);
@@ -62,8 +68,8 @@ void heap_insert_tests(max_heap &hp) {
 			testMaxHeap2.insert(text_item{text, word_freq});
 			temp = testMaxHeap2.top();
 			std::cout << "Top of heap is: " << temp << std::endl;
+			i++;
 		}
-
 }
 
 //--- PART 1B: Implementation and testing of heap delete
@@ -73,11 +79,16 @@ void heap_delete_tests(max_heap &hp) {
 	//--- Testing deleteMax functionality
 	std::cout << "*** TESTING DELETEMAX ***" << std::endl;
 	//--- This does not fully test delete_max functionality.
-	while (hp.size() > 1) {
+	while (!hp.empty()) {
 		temp = hp.delete_max();
 		std::cout << "Item returned from heap delete: "<< temp << std::endl;
-		temp = hp.top();
-		std::cout << "Top of heap is now: " << temp << std::endl;
+		if (!hp.empty()){
+			temp = hp.top();
+			std::cout << "Top of heap is now: " << temp << std::endl;
+		}
+		else {
+			std::cout << "Heap is now empty. Can't access the top of the heap" << std::endl;
+		}
 	}
 
 	//--- Specific insert functionality that should be tested:
@@ -85,30 +96,46 @@ void heap_delete_tests(max_heap &hp) {
 	// remove_max works when swap_down with left child
 		// <INSERT TEST(S) HERE>
 		cout << endl << "Testing remove_max works when swap_down with left child " << endl;
-		max_heap testLeftChild(3);
-		testLeftChild.insert(text_item{"item1", 10});
-		testLeftChild.insert(text_item{"item1", 30});
-		testLeftChild.insert(text_item{"item1", 20});
-		while (testLeftChild.size() > 1) {
+		max_heap testLeftChild(6);
+		testLeftChild.insert(text_item{"item1", 50});
+		testLeftChild.insert(text_item{"item2", 40});
+		testLeftChild.insert(text_item{"item3", 30});
+		testLeftChild.insert(text_item{"item4", 20});
+		testLeftChild.insert(text_item{"item5", 10});
+		cout << "The testLeftChild heap array by index is: " << endl << "	text_item{'item1', 50}, text_item{'item2', 40}, text_item{'item3', 30}, text_item{'item4', 20}, text_item{'item5', 10}" << endl;
+		while (!testLeftChild.empty()) {
 			temp = testLeftChild.delete_max();
 			std::cout << "Item returned from heap delete: "<< temp << std::endl;
-			temp = testLeftChild.top();
-			std::cout << "Top of heap is now: " << temp << std::endl;
+			if (!testLeftChild.empty()){
+				temp = testLeftChild.top();
+				std::cout << "Top of heap is now: " << temp << std::endl;
+			}
+			else {
+				std::cout << "Heap is now empty. Can't access the top of the heap" << std::endl;
+			}
 		}
 
 
 	// remove_max workd when swap_down with right child
 		// <INSERT TEST(S) HERE>
-		cout << endl << "Testing remove_max workd when swap_down with right child " << endl;
-		max_heap testRightChild(5);
-		testRightChild.insert(text_item{"item1", 10});
-		testRightChild.insert(text_item{"item1", 20});
-		testRightChild.insert(text_item{"item1", 30});
-		while (testRightChild.size() > 1) {
+		cout << endl << "Testing remove_max works when swap_down with right child " << endl;
+		max_heap testRightChild(6);
+		testRightChild.insert(text_item{"item1", 50});
+		testRightChild.insert(text_item{"item2", 30});
+		testRightChild.insert(text_item{"item3", 40});
+		testRightChild.insert(text_item{"item4", 20});
+		testRightChild.insert(text_item{"item5", 10});
+		cout << "The testRightChild heap array by index is: " << endl << "	text_item{'item1', 50}, text_item{'item2', 30}, text_item{'item3', 40}, text_item{'item4', 20}, text_item{'item5', 10}" << endl;
+		while (!testRightChild.empty()) {
 			temp = testRightChild.delete_max();
 			std::cout << "Item returned from heap delete: "<< temp << std::endl;
-			temp = testRightChild.top();
-			std::cout << "Top of heap is now: " << temp << std::endl;
+			if (!testRightChild.empty()){
+				temp = testRightChild.top();
+				std::cout << "Top of heap is now: " << temp << std::endl;
+			}
+			else {
+				std::cout << "Heap is now empty. Can't access the top of the heap" << std::endl;
+			}
 		}
 
 	// remove_max on an empty heap (should throw exception similar to top())
@@ -130,7 +157,7 @@ void tree_tester(string_bst const &tree) {
 	//--- Testing word_frequency functionality
 	//--- This does not fully test word_frequency functionality.
 	if (tree.size() > 1) {
-		string to_find = "thing";
+		string to_find = "difficult";
 		int num_times = tree.word_frequency(to_find);
 		std::cout << "Found: "<< to_find <<
 			" in the input file " << num_times
@@ -140,10 +167,47 @@ void tree_tester(string_bst const &tree) {
 	//--- Specific word_frequency functionality that should be tested:
 
 	// can search through both left and right subtrees if not found at current node
-		// <INSERT TEST(S) HERE>
+	cout << endl << "Testing search through both left and right subtrees if not found at current node " << endl;
+
+	string_bst* testTree = new string_bst();
+	testTree->insert("c");
+	testTree->insert("d");
+	testTree->insert("a");
+	testTree->insert("b");
+	testTree->insert("c");
+	testTree->insert("a");
+	testTree->insert("a");
+	testTree->insert("b");
+	cout << "New custom BST is created. Root: " << testTree->get_root()->data << endl;
+	testTree->display();
+
+	cout << endl << "		1)Testing search through left subtrees " << endl;
+	if (tree.size() > 1) {
+		string to_find = "a";
+		int num_times = testTree->word_frequency(to_find);
+		std::cout << "Found: "<< to_find <<
+			" in the input file " << num_times
+			<< " time(s)." << std::endl;
+	}
+
+	cout << endl << "		2)Testing search through right subtrees " << endl;
+	if (tree.size() > 1) {
+		string to_find = "d";
+		int num_times = testTree->word_frequency(to_find);
+		std::cout << "Found: "<< to_find <<
+			" in the input file " << num_times
+			<< " time(s)." << std::endl;
+	}
 
 	// returns 0 if word is not found
-		// <INSERT TEST(S) HERE>
+	cout << endl << "Testing returns 0 if word is not found" << endl;
+	if (tree.size() > 1) {
+		string to_find = "NOTINTHETREE";
+		int num_times = testTree->word_frequency(to_find);
+		std::cout << "Couldn't find: "<< to_find <<
+			" in the input file. The freq is: " << num_times
+			<< " time(s)." << std::endl;
+	}
 
 }
 
@@ -195,9 +259,11 @@ void starts_with(max_heap hp, char starts_with_letter) {
 
 void heap_tester() {
 	text_item temp;
-	int heap_size = 10; //feel free to create heaps of other sizes when testing
-	cout << "How many items should be added to heap? ";
+	int heap_size; //feel free to create heaps of other sizes when testing
+	cout << "How many items should be added to heap?" << endl
+	<<"(heap_size will be 10 by default if number is not entered or number is 0)" << endl;
 	cin >> heap_size;
+	heap_size = (heap_size) ? heap_size : 10;
 	max_heap hp(heap_size);
 	std::cout << "Created heap of size " << heap_size << std::endl;
 

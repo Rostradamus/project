@@ -30,10 +30,6 @@ int max_heap::size() const {
 	return numItems;
 }
 
-int max_heap::capacity() const {
-	return max_capacity;
-}
-
 text_item& max_heap::top() {
 	if (empty()) {
 		throw std::logic_error("Heap is empty, can't access top!");

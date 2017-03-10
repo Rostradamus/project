@@ -86,15 +86,6 @@ class max_heap
   int size() const;
 
   /*-----------------------------------------------------------------------
-    Returns the maximum capacity of a heap.
-
-    Precondition:  Heap is nonempty.
-    Postcondition: Heap has not been modified, the maximum capacity
-    of Heap has been returned.
-  -----------------------------------------------------------------------*/
-  int capacity() const;
-
-  /*-----------------------------------------------------------------------
     Returns a reference to the top of the heap.
 
     Precondition:  Heap is nonempty.

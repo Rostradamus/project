@@ -69,7 +69,6 @@ string_bst::node_t* string_bst::get_root() const {
 }
 
 int string_bst::word_frequency(const tree_key &key) const {
-	if (false) display();
 	if(!root) return 0;
 
 	if (root->data.word == key) {
