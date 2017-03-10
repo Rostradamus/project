@@ -1,0 +1,416 @@
+******* DEFAULT INPUT TEST ******* (CUSTOM INPUT TEST BELOW)
+
+How many items should be added to heap?
+(heap_size will be 10 by default if number is not entered or number is 0)
+default
+Created heap of size 10
+Current number of items in heap is: 0
+Heap is empty, can't access top!
+
+BEGINNING TESTS FOR PART 1A
+*** TESTING INSERT ***
+adding item1,  with number 19 to heap
+Top of heap is: text_item{"item1",19}
+adding item2,  with number 84 to heap
+Top of heap is: text_item{"item2",84}
+adding item3,  with number 98 to heap
+Top of heap is: text_item{"item3",98}
+adding item4,  with number 28 to heap
+Top of heap is: text_item{"item3",98}
+adding item5,  with number 2 to heap
+Top of heap is: text_item{"item3",98}
+adding item6,  with number 64 to heap
+Top of heap is: text_item{"item3",98}
+adding item7,  with number 77 to heap
+Top of heap is: text_item{"item3",98}
+adding item8,  with number 53 to heap
+Top of heap is: text_item{"item3",98}
+adding item9,  with number 38 to heap
+Top of heap is: text_item{"item3",98}
+adding item10,  with number 55 to heap
+Top of heap is: text_item{"item3",98}
+
+Testing insert without any swap_ups needed
+adding item1,  with number 100 to heap
+Top of heap is: text_item{"item1",100}
+adding item2,  with number 90 to heap
+Top of heap is: text_item{"item1",100}
+adding item3,  with number 80 to heap
+Top of heap is: text_item{"item1",100}
+adding item4,  with number 70 to heap
+Top of heap is: text_item{"item1",100}
+adding item5,  with number 60 to heap
+Top of heap is: text_item{"item1",100}
+adding item6,  with number 50 to heap
+Top of heap is: text_item{"item1",100}
+adding item7,  with number 40 to heap
+Top of heap is: text_item{"item1",100}
+adding item8,  with number 30 to heap
+Top of heap is: text_item{"item1",100}
+adding item9,  with number 20 to heap
+Top of heap is: text_item{"item1",100}
+adding item10,  with number 10 to heap
+Top of heap is: text_item{"item1",100}
+
+Testing insert with a swap_up / multiple swap_ups
+adding item1,  with number 10 to heap
+Top of heap is: text_item{"item1",10}
+adding item2,  with number 20 to heap
+Top of heap is: text_item{"item2",20}
+adding item3,  with number 30 to heap
+Top of heap is: text_item{"item3",30}
+adding item4,  with number 40 to heap
+Top of heap is: text_item{"item4",40}
+adding item5,  with number 50 to heap
+Top of heap is: text_item{"item5",50}
+adding item6,  with number 60 to heap
+Top of heap is: text_item{"item6",60}
+adding item7,  with number 70 to heap
+Top of heap is: text_item{"item7",70}
+adding item8,  with number 80 to heap
+Top of heap is: text_item{"item8",80}
+adding item9,  with number 90 to heap
+Top of heap is: text_item{"item9",90}
+adding item10,  with number 100 to heap
+Top of heap is: text_item{"item10",100}
+
+BEGINNING TESTS FOR PART 1B
+*** TESTING DELETEMAX ***
+Item returned from heap delete: text_item{"item3",98}
+Top of heap is now: text_item{"item2",84}
+Item returned from heap delete: text_item{"item2",84}
+Top of heap is now: text_item{"item7",77}
+Item returned from heap delete: text_item{"item7",77}
+Top of heap is now: text_item{"item6",64}
+Item returned from heap delete: text_item{"item6",64}
+Top of heap is now: text_item{"item10",55}
+Item returned from heap delete: text_item{"item10",55}
+Top of heap is now: text_item{"item8",53}
+Item returned from heap delete: text_item{"item8",53}
+Top of heap is now: text_item{"item9",38}
+Item returned from heap delete: text_item{"item9",38}
+Top of heap is now: text_item{"item4",28}
+Item returned from heap delete: text_item{"item4",28}
+Top of heap is now: text_item{"item1",19}
+Item returned from heap delete: text_item{"item1",19}
+Top of heap is now: text_item{"item5",2}
+Item returned from heap delete: text_item{"item5",2}
+Heap is now empty. Can't access the top of the heap
+
+Testing remove_max works when swap_down with left child
+The testLeftChild heap array by index is:
+	text_item{'item1', 50}, text_item{'item2', 40}, text_item{'item3', 30}, text_item{'item4', 20}, text_item{'item5', 10}
+Item returned from heap delete: text_item{"item1",50}
+Top of heap is now: text_item{"item2",40}
+Item returned from heap delete: text_item{"item2",40}
+Top of heap is now: text_item{"item3",30}
+Item returned from heap delete: text_item{"item3",30}
+Top of heap is now: text_item{"item4",20}
+Item returned from heap delete: text_item{"item4",20}
+Top of heap is now: text_item{"item5",10}
+Item returned from heap delete: text_item{"item5",10}
+Heap is now empty. Can't access the top of the heap
+
+Testing remove_max works when swap_down with right child
+The testRightChild heap array by index is:
+	text_item{'item1', 50}, text_item{'item2', 30}, text_item{'item3', 40}, text_item{'item4', 20}, text_item{'item5', 10}
+Item returned from heap delete: text_item{"item1",50}
+Top of heap is now: text_item{"item3",40}
+Item returned from heap delete: text_item{"item3",40}
+Top of heap is now: text_item{"item2",30}
+Item returned from heap delete: text_item{"item2",30}
+Top of heap is now: text_item{"item4",20}
+Item returned from heap delete: text_item{"item4",20}
+Top of heap is now: text_item{"item5",10}
+Item returned from heap delete: text_item{"item5",10}
+Heap is now empty. Can't access the top of the heap
+
+Testing remove_max on an empty heap (should throw logic_error)
+delete_max() error caught: Cannot delete, heap is empty!
+
+BEGINNING TESTS FOR PART 2
+Found: difficult in the input file 39 time(s).
+
+Testing search through both left and right subtrees if not found at current node
+New custom BST is created. Root: text_item{"c",2}
+a:3, b:2, c:2, d:1,
+
+		1)Testing search through left subtrees
+Found: a in the input file 3 time(s).
+
+		2)Testing search through right subtrees
+Found: d in the input file 1 time(s).
+
+Testing returns 0 if word is not found
+Couldn't find: NOTINTHETREE in the input file. The freq is: 0 time(s).
+
+BEGINNING TESTS FOR PART 3
+*** Top 5 most frequent words: ***
+text_item{"the",40506}
+text_item{"of",19652}
+text_item{"and",14786}
+text_item{"a",14315}
+text_item{"to",13761}
+
+*** Top 5 most frequent words with at least 6 letters ***
+text_item{"marius",1347}
+text_item{"valjean",1098}
+text_item{"himself",1063}
+text_item{"cosette",1000}
+text_item{"little",971}
+
+*** Top 5 most frequent words that begin with c ***
+text_item{"cosette",1000}
+text_item{"could",675}
+text_item{"come",548}
+text_item{"child",453}
+text_item{"can",432}
+
+
+******* CUSTOM INPUT TEST *******
+
+How many items should be added to heap?
+(heap_size will be 10 by default if number is not entered or number is 0)
+20
+Created heap of size 20
+Current number of items in heap is: 0
+Heap is empty, can't access top!
+
+BEGINNING TESTS FOR PART 1A
+*** TESTING INSERT ***
+adding item1,  with number 82 to heap
+Top of heap is: text_item{"item1",82}
+adding item2,  with number 58 to heap
+Top of heap is: text_item{"item1",82}
+adding item3,  with number 95 to heap
+Top of heap is: text_item{"item3",95}
+adding item4,  with number 1 to heap
+Top of heap is: text_item{"item3",95}
+adding item5,  with number 57 to heap
+Top of heap is: text_item{"item3",95}
+adding item6,  with number 20 to heap
+Top of heap is: text_item{"item3",95}
+adding item7,  with number 31 to heap
+Top of heap is: text_item{"item3",95}
+adding item8,  with number 61 to heap
+Top of heap is: text_item{"item3",95}
+adding item9,  with number 51 to heap
+Top of heap is: text_item{"item3",95}
+adding item10,  with number 20 to heap
+Top of heap is: text_item{"item3",95}
+adding item11,  with number 62 to heap
+Top of heap is: text_item{"item3",95}
+adding item12,  with number 8 to heap
+Top of heap is: text_item{"item3",95}
+adding item13,  with number 79 to heap
+Top of heap is: text_item{"item3",95}
+adding item14,  with number 19 to heap
+Top of heap is: text_item{"item3",95}
+adding item15,  with number 47 to heap
+Top of heap is: text_item{"item3",95}
+adding item16,  with number 40 to heap
+Top of heap is: text_item{"item3",95}
+adding item17,  with number 93 to heap
+Top of heap is: text_item{"item3",95}
+adding item18,  with number 99 to heap
+Top of heap is: text_item{"item18",99}
+adding item19,  with number 15 to heap
+Top of heap is: text_item{"item18",99}
+adding item20,  with number 42 to heap
+Top of heap is: text_item{"item18",99}
+
+Testing insert without any swap_ups needed
+adding item1,  with number 200 to heap
+Top of heap is: text_item{"item1",200}
+adding item2,  with number 190 to heap
+Top of heap is: text_item{"item1",200}
+adding item3,  with number 180 to heap
+Top of heap is: text_item{"item1",200}
+adding item4,  with number 170 to heap
+Top of heap is: text_item{"item1",200}
+adding item5,  with number 160 to heap
+Top of heap is: text_item{"item1",200}
+adding item6,  with number 150 to heap
+Top of heap is: text_item{"item1",200}
+adding item7,  with number 140 to heap
+Top of heap is: text_item{"item1",200}
+adding item8,  with number 130 to heap
+Top of heap is: text_item{"item1",200}
+adding item9,  with number 120 to heap
+Top of heap is: text_item{"item1",200}
+adding item10,  with number 110 to heap
+Top of heap is: text_item{"item1",200}
+adding item11,  with number 100 to heap
+Top of heap is: text_item{"item1",200}
+adding item12,  with number 90 to heap
+Top of heap is: text_item{"item1",200}
+adding item13,  with number 80 to heap
+Top of heap is: text_item{"item1",200}
+adding item14,  with number 70 to heap
+Top of heap is: text_item{"item1",200}
+adding item15,  with number 60 to heap
+Top of heap is: text_item{"item1",200}
+adding item16,  with number 50 to heap
+Top of heap is: text_item{"item1",200}
+adding item17,  with number 40 to heap
+Top of heap is: text_item{"item1",200}
+adding item18,  with number 30 to heap
+Top of heap is: text_item{"item1",200}
+adding item19,  with number 20 to heap
+Top of heap is: text_item{"item1",200}
+adding item20,  with number 10 to heap
+Top of heap is: text_item{"item1",200}
+
+Testing insert with a swap_up / multiple swap_ups
+adding item1,  with number 10 to heap
+Top of heap is: text_item{"item1",10}
+adding item2,  with number 20 to heap
+Top of heap is: text_item{"item2",20}
+adding item3,  with number 30 to heap
+Top of heap is: text_item{"item3",30}
+adding item4,  with number 40 to heap
+Top of heap is: text_item{"item4",40}
+adding item5,  with number 50 to heap
+Top of heap is: text_item{"item5",50}
+adding item6,  with number 60 to heap
+Top of heap is: text_item{"item6",60}
+adding item7,  with number 70 to heap
+Top of heap is: text_item{"item7",70}
+adding item8,  with number 80 to heap
+Top of heap is: text_item{"item8",80}
+adding item9,  with number 90 to heap
+Top of heap is: text_item{"item9",90}
+adding item10,  with number 100 to heap
+Top of heap is: text_item{"item10",100}
+adding item11,  with number 110 to heap
+Top of heap is: text_item{"item11",110}
+adding item12,  with number 120 to heap
+Top of heap is: text_item{"item12",120}
+adding item13,  with number 130 to heap
+Top of heap is: text_item{"item13",130}
+adding item14,  with number 140 to heap
+Top of heap is: text_item{"item14",140}
+adding item15,  with number 150 to heap
+Top of heap is: text_item{"item15",150}
+adding item16,  with number 160 to heap
+Top of heap is: text_item{"item16",160}
+adding item17,  with number 170 to heap
+Top of heap is: text_item{"item17",170}
+adding item18,  with number 180 to heap
+Top of heap is: text_item{"item18",180}
+adding item19,  with number 190 to heap
+Top of heap is: text_item{"item19",190}
+adding item20,  with number 200 to heap
+Top of heap is: text_item{"item20",200}
+
+BEGINNING TESTS FOR PART 1B
+*** TESTING DELETEMAX ***
+Item returned from heap delete: text_item{"item18",99}
+Top of heap is now: text_item{"item3",95}
+Item returned from heap delete: text_item{"item3",95}
+Top of heap is now: text_item{"item17",93}
+Item returned from heap delete: text_item{"item17",93}
+Top of heap is now: text_item{"item1",82}
+Item returned from heap delete: text_item{"item1",82}
+Top of heap is now: text_item{"item13",79}
+Item returned from heap delete: text_item{"item13",79}
+Top of heap is now: text_item{"item11",62}
+Item returned from heap delete: text_item{"item11",62}
+Top of heap is now: text_item{"item8",61}
+Item returned from heap delete: text_item{"item8",61}
+Top of heap is now: text_item{"item2",58}
+Item returned from heap delete: text_item{"item2",58}
+Top of heap is now: text_item{"item5",57}
+Item returned from heap delete: text_item{"item5",57}
+Top of heap is now: text_item{"item9",51}
+Item returned from heap delete: text_item{"item9",51}
+Top of heap is now: text_item{"item15",47}
+Item returned from heap delete: text_item{"item15",47}
+Top of heap is now: text_item{"item20",42}
+Item returned from heap delete: text_item{"item20",42}
+Top of heap is now: text_item{"item16",40}
+Item returned from heap delete: text_item{"item16",40}
+Top of heap is now: text_item{"item7",31}
+Item returned from heap delete: text_item{"item7",31}
+Top of heap is now: text_item{"item6",20}
+Item returned from heap delete: text_item{"item6",20}
+Top of heap is now: text_item{"item10",20}
+Item returned from heap delete: text_item{"item10",20}
+Top of heap is now: text_item{"item14",19}
+Item returned from heap delete: text_item{"item14",19}
+Top of heap is now: text_item{"item19",15}
+Item returned from heap delete: text_item{"item19",15}
+Top of heap is now: text_item{"item12",8}
+Item returned from heap delete: text_item{"item12",8}
+Top of heap is now: text_item{"item4",1}
+Item returned from heap delete: text_item{"item4",1}
+Heap is now empty. Can't access the top of the heap
+
+Testing remove_max works when swap_down with left child
+The testLeftChild heap array by index is:
+	text_item{'item1', 50}, text_item{'item2', 40}, text_item{'item3', 30}, text_item{'item4', 20}, text_item{'item5', 10}
+Item returned from heap delete: text_item{"item1",50}
+Top of heap is now: text_item{"item2",40}
+Item returned from heap delete: text_item{"item2",40}
+Top of heap is now: text_item{"item3",30}
+Item returned from heap delete: text_item{"item3",30}
+Top of heap is now: text_item{"item4",20}
+Item returned from heap delete: text_item{"item4",20}
+Top of heap is now: text_item{"item5",10}
+Item returned from heap delete: text_item{"item5",10}
+Heap is now empty. Can't access the top of the heap
+
+Testing remove_max works when swap_down with right child
+The testRightChild heap array by index is:
+	text_item{'item1', 50}, text_item{'item2', 30}, text_item{'item3', 40}, text_item{'item4', 20}, text_item{'item5', 10}
+Item returned from heap delete: text_item{"item1",50}
+Top of heap is now: text_item{"item3",40}
+Item returned from heap delete: text_item{"item3",40}
+Top of heap is now: text_item{"item2",30}
+Item returned from heap delete: text_item{"item2",30}
+Top of heap is now: text_item{"item4",20}
+Item returned from heap delete: text_item{"item4",20}
+Top of heap is now: text_item{"item5",10}
+Item returned from heap delete: text_item{"item5",10}
+Heap is now empty. Can't access the top of the heap
+
+Testing remove_max on an empty heap (should throw logic_error)
+delete_max() error caught: Cannot delete, heap is empty!
+
+BEGINNING TESTS FOR PART 2
+Found: are in the input file 2134 time(s).
+
+Testing search through both left and right subtrees if not found at current node
+New custom BST is created. Root: text_item{"c",2}
+a:3, b:2, c:2, d:1,
+
+		1)Testing search through left subtrees
+Found: a in the input file 3 time(s).
+
+		2)Testing search through right subtrees
+Found: d in the input file 1 time(s).
+
+Testing returns 0 if word is not found
+Couldn't find: NOTINTHETREE in the input file. The freq is: 0 time(s).
+
+BEGINNING TESTS FOR PART 3
+*** Top 5 most frequent words: ***
+text_item{"the",40506}
+text_item{"of",19652}
+text_item{"and",14786}
+text_item{"a",14315}
+text_item{"to",13761}
+
+*** Top 5 most frequent words with at least 10 letters ***
+text_item{"th�nardier",520}
+text_item{"everything",304}
+text_item{"fauchelevent",291}
+text_item{"themselves",248}
+text_item{"gillenormand",233}
+
+*** Top 5 most frequent words that begin with t ***
+text_item{"the",40506}
+text_item{"to",13761}
+text_item{"that",7865}
+text_item{"this",3946}
+text_item{"there",2629}
